@@ -1,9 +1,19 @@
 # 用 Github + Markdown 创建个人网站
 
-本文档描述如何通过 Github + Markdown 创建网站。
+本文档描述如何通过 Github + Markdown 创建个人网站。
 
-大致步骤如下：
-1. 在 github 上创建 **账号 account**。已有账号了，可跳过此步骤。以下以账号 gdvzz 为例。
+- 网页内容。在本地电脑上通过编写 markdown 文档实现的。
+- 网页更新。本地电脑执行 `git push` 推送到 github.com 即可。
+- 网站访问。在浏览器输入 `<github账号名>.github.io/<该账号下的一个仓库名>`。
+
+网站样例请访问：[https://gdvzz.github.io/wsdemo/](https://gdvzz.github.io/wsdemo/)
+
+## 主要步骤
+
+
+
+主要步骤如下：
+- [创建 github 账号account](#创建-github-账号account)。已有账号了，可跳过此步骤。
 <!--  -->
 2. 在 github 账号下新建 **仓库 repository**，用于存放网站的文档、图片等内容。以下以仓库 wsdemo 为例。
 <!--  -->
@@ -16,11 +26,22 @@
   - 初始化本地电脑目录
   - 配置 github 仓库信息
 
-## 网站效果
+本文以如下信息为样例：
+- 账号：`gdvzz`
+- 仓库：`wsdemo`
 
-请访问：[https://gdvzz.github.io/wsdemo/](https://gdvzz.github.io/wsdemo/)
+## 创建账号（account）
 
-## 在 github 上创建账号 account
+创建 github 账号（account），此处从略。有几点信息：
+
+- 可注册新邮箱，专门用于创建 github 账号
+- 创建基本完成时，要做 visual puzzle 或 audio puzzle，证明
+
+
+
+
+
+## 新建仓库（repository）
 
 登录 github 网站后新建**仓库（repository）**:
 - 输入**仓库名称（Repository name）**，比如 `wsdemo`
@@ -30,13 +51,13 @@
 然后按底部按钮 **Create repository** 即可。如下图所示：
 [![new_repo](./readme.assets/new_repo.png)](./readme.assets/new_repo.png)
 
-## 在 github 账号下添加 SSH key
+## 添加 SSH key
 
 需要在 github 账号下添加 ssh key，以保证只有授权用户才能更新网站内容。
 
-### 生成 ssh key
+### 生成 ssh 密钥对
 
-根据参考资料 [^1]，执行如下命令，生成新的 key。命令中的 `"gdvzz@outlook.com"`，请换成你自己的邮箱（一般是用于注册 github 账号的邮箱）。
+根据参考资料 [^1]，执行如下命令，生成新的 key。
 
 ```bash
 ~/gdvzz/wsdemo % ssh-keygen -t ed25519 -C "gdvzz@outlook.com"
@@ -51,6 +72,25 @@ SHA256:... gdvzz@outlook.com
 The key's randomart image is:
 ...
 ```
+
+> **说明：**
+> - 命令中的 `"gdvzz@outlook.com"`，请换成你自己的邮箱（一般是用于注册 github 账号的邮箱）。
+> - `Enter file in which to save the key: `，要保存为其他文件名，则要输入完整的路径名，否则保存在当前目录下。
+
+通过上述命令生成了 ssh 密钥对，共 2 个文件，如下所示。以 `.pub` 结尾的文件是公钥，稍后粘贴到 github 账号的配置中。`id_ed25519_gdvzz_olk` 是私钥，请如同口令密码之类的保存好，不要让其他人知道。
+
+```
+~/.ssh % ls -la *ed25519*
+-rw-------  1 george1442  staff  411 Jan 15 13:28 id_ed25519_gdvzz_olk
+-rw-r--r--  1 george1442  staff   99 Jan 15 13:28 id_ed25519_gdvzz_olk.pub
+```
+
+### 添加公钥到 githuab账号下
+
+1. 回到 github 网站，点击右上角账号图标，再选择 **设置（setting）**。
+
+2. 在设置页面，找到
+![account_sshkeys](./readme.assets/account_sshkeys.png)
 
 ```bash
 # github - gdvzz@outlook.com
