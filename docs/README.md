@@ -56,7 +56,7 @@
 
 ## 添加ssh密钥
 
-需要在 github 账号下添加 ssh key，以保证只有授权用户才能更新网站内容。有兴趣的同学可以阅读 “什么是SSH” [^3] 获得更多信息。
+需要在 github 账号下添加 ssh key，以保证只有授权用户才能更新网站内容。感兴趣者可以阅读 “什么是SSH” [^3] 获得更多信息。
 
 ### 生成 ssh 密钥
 
@@ -66,13 +66,6 @@
 ~/.ssh % ssh-keygen -t ed25519 -C "gdvzz@outlook.com" # 请改成自己的邮箱
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (/Users/george1442/.ssh/id_ed25519): id_ed25519_gdvzz_olk
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in id_ed25519_gdvzz_olk
-Your public key has been saved in id_ed25519_gdvzz_olk.pub
-The key fingerprint is:
-SHA256:... gdvzz@outlook.com
-The key's randomart image is:
 ...
 ```
 
@@ -80,13 +73,7 @@ The key's randomart image is:
 > - 命令中的 `"gdvzz@outlook.com"`，请换成你自己的邮箱（一般是用于注册 github 账号的邮箱）。
 > - `Enter file in which to save the key: `，如要保存为其他文件名，则要输入完整的路径名，否则保存在当前目录下。
 
-通过上述命令生成了 ssh 密钥对，共 2 个文件，如下所示（文件信息只展示了部分）。以 `.pub` 结尾的文件是公钥，稍后粘贴该文件内容到 github 账号的配置中。`id_ed25519_gdvzz_olk` 是私钥，请如同口令密码之类的保存好，不要让其他人知道。
-
-```
-~/.ssh % ls -la *ed25519*
--rw-------  411 id_ed25519_gdvzz_olk
--rw-r--r--   99 id_ed25519_gdvzz_olk.pub
-```
+通过上述命令生成了 ssh 密钥对，共 2 个文件。以 `.pub` 结尾的文件是公钥，稍后粘贴该文件内容到 github 账号的配置中。`id_ed25519_gdvzz_olk` 是私钥，请如同口令密码之类的保存好，不要让其他人知道。
 
 ### 添加公钥到 github 账号下
 
@@ -164,16 +151,9 @@ Initialized empty Git repository in /Users/george1442/gdvzz/wsdemo/.git/
 ~/gdvzz/wsdemo % git branch -M master
 ~/gdvzz/wsdemo % git remote add origin git@githubvzz.com:gdvzz/wsdemo.git # 改成自己的 git 信息
 ~/gdvzz/wsdemo % git push -u origin master
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (4/4), 1000 bytes | 1000.00 KiB/s, done.
-Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
-To githubvzz.com:gdvzz/wsdemo.git
- * [new branch]      master -> master
-branch 'master' set up to track 'origin/master'.
 ```
+
+> git remote add origin <git信息>，其中 <git信息> 请改成自己的 git 信息。
 
 <br>
 上述相关命令，参考了仓库新建完毕的提示页面（如下所示）：
@@ -205,29 +185,9 @@ branch 'master' set up to track 'origin/master'.
 
 ```bash
 ~/gdvzz/wsdemo % git status
-On branch master
-Your branch is up to date with 'origin/master'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   docs/README.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
 ~/gdvzz/wsdemo % git add .
 ~/gdvzz/wsdemo % git commit -m "update readme"
-[master ceca533] update readme
- 1 file changed, 44 insertions(+), 30 deletions(-)
 ~/gdvzz/wsdemo % git push origin
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (4/4), 1.59 KiB | 1.59 MiB/s, done.
-Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To githubvzz.com:gdvzz/wsdemo.git
-   6d28c37..ceca533  master -> master
 ```
 
 
