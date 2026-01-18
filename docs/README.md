@@ -32,8 +32,7 @@
 ## 相关链接
 
 - 关于本站：[链接](./about/readme.md)
-
-- George Donne's Blog: [链接](gdvzz.github.io/gdlog)
+- George Donne's Blog: [链接](https://gdvzz.github.io/gdlog/)
 
 <!--  -->
 ## 创建账号
