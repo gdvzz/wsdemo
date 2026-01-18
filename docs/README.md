@@ -8,20 +8,34 @@
 
 网站样例请访问：[https://gdvzz.github.io/wsdemo/](https://gdvzz.github.io/wsdemo/)。
 
+<!--  -->
 ## 主要步骤
 
 主要步骤如下：
-- [创建账号](#创建账号)。已有 github 账号了，可跳过此步骤。
-- [新建仓库](#新建仓库)。在 github 账号下新建仓库，用于存放网站的文档、图片等内容。
-- [添加ssh密钥](#添加ssh密钥)。在 github 账号下添加 ssh 密钥，以保证只有你能更新网站的内容。
-- [本地配置](#本地配置)。在本地电脑上做相关配置，和 github 上的仓库关联起来。 
-- [发布网站](#发布网站)。在 github 上发布王章，之后可通过浏览器访问。
-- [更新网站](#更新网站)。更新或新增 markdown 文档，并推送到 github.com。
+1. [创建账号](#创建账号)。已有 github 账号，则跳过此步骤。
+
+2. [新建仓库](#新建仓库)。在 github 账号下新建仓库，用于存放网站的文档、图片等内容。
+
+3. [添加ssh密钥](#添加ssh密钥)。在 github 账号下添加 ssh 密钥，以保证只有你能更新网站的内容。
+
+4. [本地配置](#本地配置)。在本地电脑上做相关配置，和 github 上的仓库关联起来。 
+
+5. [发布网站](#发布网站)。在 github 上发布网站，之后可通过浏览器访问。
+
+6. [更新网站](#更新网站)。更新或新增 markdown 文档，并推送到 github.com。
 
 本文以如下信息为样例：
 - 账号：`gdvzz`
 - 仓库：`wsdemo`
 
+<!--  -->
+## 相关链接
+
+- 关于本站：[链接](./about/readme.md)
+
+- George Donne's Blog: [链接](gdvzz.github.io/gdlog)
+
+<!--  -->
 ## 创建账号
 
 如何创建 github 账号（account），可参考相关资料 [^1]，此处从略。有几点信息：
@@ -29,6 +43,7 @@
 - 可注册新邮箱，专门用于创建 github 账号。
 - 创建基本完成时，要做 visual puzzle 或 audio puzzle，证明非机器操作。验证程序时灵时不灵，可能还是和网络相关。
 
+<!--  -->
 ## 新建仓库
 
 在 github 账号下新建**仓库（repository）**，用于存放网站的文档、图片等内容。登录 github 网站后新建**仓库（repository）**:
@@ -121,6 +136,8 @@ Hi gdvzz! You've successfully authenticated, but GitHub does not provide shell a
 ~ % mkdir -p gdvzz/wsdemo
 ```
 
+> 建议：一级目录为 github 的账号名，二级目录为仓库名称，这样比较好对应和理解。
+
 **2、git初始化。** 切换到 `~/gdvzz/wsdemo` 目录，并执行 git 初始化命令。
 
 ```bash
@@ -173,9 +190,9 @@ branch 'master' set up to track 'origin/master'.
 修改 **Build and deployment** 的设置：
 
 - **Source:** 选择 `Deploy from a branch`
-- **Branch | Select branch:** 选择 `master`
-- **Branch | Select folder:** 选择 `/docs`
-- 然后点击 **Branch | Save** 按钮
+- **Branch \| Select branch:** 选择 `master`
+- **Branch - Select folder:** 选择 `/docs`
+- 然后点击 **Branch - Save** 按钮
 
 <br>
 稍等一会儿刷新网页，可看到网站发布成功了，如下所示：
